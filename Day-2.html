@@ -1,181 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DAY 2 OF 100 DAYS CSS CHALLENGE</title>
-        <style>
-            .frame 
-            {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 400px;
-                height: 400px;
-                margin-top: -200px;
-                margin-left: -200px;
-                border-radius: 50px;
-                box-shadow: 5px 10px 20px 0 rgba(0,0,0,0.1);
-                overflow: hidden;
-                background: radial-gradient(circle, #008080 0%, #800080 100% );
-                color: #000080;
-                font-family: 'Open sans', Helvetica, sans-serif;
-                -webkit-font-smoothing: antiailiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY 2 OF 100 DAYS OF CSS CHALLENGE</title>
+    <style>
+        :root 
+        {
+            --zero-percent: #008080;
+            --hundred-percent: #800080;
+        }
 
-            .center
-            {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
+        .frame
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--zero-percent) 0%, var(--hundred-percent) 100%);
+            overflow: hidden;
+            border-radius: 50px;
+            box-shadow: 5px 10px 20px 0 rgba(0, 0, 0, 0.1);
+            margin-top: -200px;
+            margin-left: -200px;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-            .burger-container
-            {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                width: 80px;
-                height: 60px;
-            }
+        .center
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-            .burger-line 
-            {
-                position: absolute;
-                width: 80px;
-                height: 8px;
-                background-color: #FFFF00;
-                border-radius: 4px;
-                box-shadow: 1px 1px 3px #FF00FF;
-            }
+        .hamburger
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100px;
+            height: 100px;
+            gap: 10px;
+        }
 
-            .burger-line:nth-child(1)
-            {
-                animation: line1-animation 1s forwards;
-            }
-            .burger-line:nth-child(2)
-            {
-                animation: line2-animation 1s forwards;
-            }
-            .burger-line:nth-child(3)
-            {
-                animation: line3-animation 1s forwards;
-            }
+        .burger-line:nth-child(1)
+        {
+            position: relative;
+            width: 80px;
+            height: 8px;
+            background-color: #FFFF00;
+            box-shadow: 1px 1px 3px #FF00FF;
+            border-radius: 5px;
+        }
 
-            .burger-container.close .burger-line:nth-child(1)
-            {
-                animation:  line1-close-animation 1s forwards;
-            }
-            .burger-container.close .burger-line:nth-child(2)
-            {
-                animation:  line2-close-animation 1s forwards;
-            }
-            .burger-container.close .burger-line:nth-child(3)
-            {
-                animation:  line3-close-animation 1s forwards;
-            }
+        .burger-line:nth-child(2)
+        {
+            position: relative;
+            width: 80px;
+            height: 8px;
+            background-color: #FFFF00;
+            box-shadow: 1px 1px 3px #FF00FF;
+            border-radius: 5px;
+        }
 
-            @keyframes line1-close-animation
-            {
-                0%
-                {
-                    transform: translateY(-20px);
-                }
-                50%
-                {
-                    transform: translateY(0px);
-                }
-                100%
-                {
-                    transform: translateY(45deg);
-                }
-            }
-
-            @keyframes line2-close-animation 
-            {
-                0%
-                {
-                    transform: scale(100%);
-                }
-                100%
-                {
-                    transform: scale(0%);
-                }
-            }
-
-            @keyframes line3-close-animation 
-            {
-                0%
-                {
-                    transform: translateY(20px);
-                }
-                50%
-                {
-                    transform: translateY(0px);
-                }
-                100%
-                {
-                    transform: rotate(135deg);
-                }
-            }
-
-            @keyframes line1-animation
-            {
-                0% 
-                {
-                    transform: rotate(45deg);
-                }
-                50%
-                {
-                    transform: translateY(0px) rotate(0deg);
-                }
-                100%
-                {
-                    transform: translateY(-20px); 
-                }
-            }
-
-            @keyframes line2-animation 
-            {
-                0%
-                {
-                    transform: scale(0%);
-                }
-                100%
-                {
-                    transform: scale(100%);
-                }
-            }
-
-            @keyframes line3-animation 
-            {
-                0%
-                {
-                    transform: rotate(135deg);
-                }
-                50%
-                {
-                    transform: translateY(0px) rotate(0deg);
-                }
-                100%
-                {
-                    transform: translateY(20px);
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="frame">
-            <div class="center">
-                <a href="#" class="burger-container">
-                    <div class="burger-line"></div>
-                    <div class="burger-line"></div>
-                    <div class="burger-line"></div>
-                </a>
+        .burger-line:nth-child(3)
+        {
+            position: relative;
+            width: 80px;
+            height: 8px;
+            background-color: #FFFF00;
+            box-shadow: 1px 1px 3px #FF00FF;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+   <div class="frame">
+        <div class="center">
+            <div class="hamburger">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
             </div>
-        </div>        
-    </body>
+        </div>
+    </div> 
+</body>
 </html>
